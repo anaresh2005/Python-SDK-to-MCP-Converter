@@ -1,0 +1,12 @@
+package: github
+providers:
+  - name: Github
+    import: github
+    construct: Github
+    auth: "env: GITHUB_TOKEN"
+    methods:
+      - name: get_user
+        rename: gh_get_user
+        mode: read
+        args:
+          login: {type: string, required: true}
