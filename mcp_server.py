@@ -5,10 +5,13 @@ from mcp.server.lowlevel import Server, NotificationOptions
 from mcp.server.models import InitializationOptions
 import mcp.server.stdio
 
+from autodiscover import build_registry_from_package
 from registry import build_registry
 from executor import call_tool
 
-REGISTRY = build_registry("config/github.yaml")
+REGISTRY = build_registry_from_package(
+    "azure.storage.blob"
+)  # build_registry("config/github.yaml")
 server = Server("sdk2mcp")
 
 
